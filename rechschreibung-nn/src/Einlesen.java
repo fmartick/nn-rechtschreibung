@@ -15,7 +15,7 @@ public class Einlesen
 		  String neues_wort = "";
 		  int wortlaenge;
 		  Vector vec = new Vector();
-		  
+		  // Test
 		  for (int i = 0; i<2; i++){
 			
 			  System.out.println("Eingeben eines neuen Wortes:");
