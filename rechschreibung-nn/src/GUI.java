@@ -8,6 +8,7 @@ public class GUI extends JFrame
 	   private JButton button1;
 	    private JButton button2;
 	    private JButton button3;
+	    private JButton button4;
 	    private JPanel panelButton;
 	    private JLabel oben;
 	    private JLabel anzeige;
@@ -17,13 +18,14 @@ public class GUI extends JFrame
 	        super("Fenster");
 	        setLocation(300,300);
 	        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	        //Das BorderLayout ist mal das erste - später fügen wir noch ein GridLayout im Westen hinzu
+	        //Das BorderLayout ist mal das erste - spï¿½ter fï¿½gen wir noch ein GridLayout im Westen hinzu
 	        getContentPane().setLayout(new BorderLayout(5,5));  
 
 	        //Buttons erzeugen
 	        button1 = new JButton("Button 1");
 	        button2 = new JButton("Button 2");
 	        button3 = new JButton("Button 3");
+	        button4 = new JButton("Button 4");
 
 	        //Panels erzeugen auf einem GridLayout
 	        panelButton = new JPanel(new GridLayout(3,1));
@@ -32,11 +34,13 @@ public class GUI extends JFrame
 	        panelButton.add(button1);
 	        panelButton.add(button2);
 	        panelButton.add(button3);
+	        panelButton.add(button4);
 
-	        //Listener für Buttons
+	        //Listener fï¿½r Buttons
 	        addButtonListener(button1);
 	        addButtonListener(button2);
 	        addButtonListener(button3);
+	        addButtonListener(button4);
 
 	        //Labels erzeugen
 	        oben = new JLabel("Layout Test");
