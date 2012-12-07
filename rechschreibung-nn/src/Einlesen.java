@@ -5,43 +5,41 @@ import java.io.*;
 public class Einlesen 
 {
 
-	  public static void main ( String[] args )
-	  {
-		  InputStream in;
-		  BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
-		  
-		  System.out.println("Systemin Lernphase:");
-		  
-		  String neues_wort = "";
-		  int wortlaenge;
-		  Vector vec = new Vector();
-		  // Test
-		  for (int i = 0; i<2; i++){
+		public static void main ( String[] args )
+		{
+			InputStream in;
+			//BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
+			Scanner console = new Scanner(System.in);
+			  
+			System.out.println("System in der Lernphase:");
+			  
+			String neues_wort = "";
+			String abbruch_wort="";
+			System.out.println("Welches Wort soll als Abbruchkriterium verwendet werden?");
+		
+			abbruch_wort = console.next();
+	
+			int wortlaenge;
+			Vector vorgabe_woerter = new Vector();
 			
-			  System.out.println("Eingeben eines neuen Wortes:");
-			  try {
-					neues_wort = console.readLine();
-				} catch (IOException e) {
-					// Sollte eigentlich nie passieren
-					e.printStackTrace();
+			// Test
+			while (!neues_wort.equals(abbruch_wort)){
+			
+				System.out.println("Eingeben eines neuen Wortes:");
+				neues_wort = console.next();
+			  
+				if (!neues_wort.equals(abbruch_wort)){
+				wortlaenge = neues_wort.length();
+					System.out.println("Wortlaenge: " + wortlaenge);
+				  
+					Woerter w1 = new Woerter(neues_wort, wortlaenge);
+					vorgabe_woerter.add(w1);  
 				}
-			  
-			  wortlaenge = neues_wort.length();
-			  System.out.println("Wortlaenge: " + wortlaenge);
-			  
-			  Woerter w1 = new Woerter(neues_wort, wortlaenge);
-			  vec.add(w1);  
-			  
-			  
-		  }
-	        /* Hier sind alle Objekte in den Vector vec eingefügt worden */
-	        for(int i =0; i < vec.size(); i++)
+			}
+	        /* Hier sind alle Objekte in den Vector vec eingefï¿½gt worden */
+	        for(int i =0; i < vorgabe_woerter.size(); i++)
 	        {
-	            ((Woerter)vec.elementAt(i)).wort_split();
-	        }
-	        
-	        
+	            ((Woerter)vorgabe_woerter.elementAt(i)).wort_split();
+	        }     
 	  }
-	  
-
 }	
