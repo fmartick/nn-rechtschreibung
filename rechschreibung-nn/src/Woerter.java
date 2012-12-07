@@ -15,10 +15,16 @@ public class Woerter {
 
     public void gibDatenAus()
     {
-        System.out.println("Es wurde das Wort \"" +wort + "\" eingetragen, welches die Länge " + wortlaenge + " besitzt.");
+        System.out.println("Es wurde das Wort \"" +wort + "\" eingetragen, welches die Lï¿½nge " + wortlaenge + " besitzt.");
 
     }
-    public void wort_split(){
+    public String gibDatenZurueck()
+    {
+        System.out.println("Es wurde das Wort \"" +wort + "\" eingetragen, welches die Lï¿½nge " + wortlaenge + " besitzt.");
+        return wort;
+
+    }
+    public int[][] wort_split(){
 		  int max_array_length = 50;
     	  int wort_array[][] = new int[max_array_length][26];
     	  
@@ -26,9 +32,7 @@ public class Woerter {
     		  for(int l=0; l<26; l++){  
     			  wort_array[k][l] = 0;
     		  }
-    	  }
-    	
-    	  
+    	  }    	  
     	  String array ="";
 		  int i = 0;
 		  int wert;
@@ -39,7 +43,7 @@ public class Woerter {
 			  wert = b_to_binaer(buchstabe);
 			  System.out.println("- " +buchstabe + " Es ist der " + wert + ". Buchstabe im Alphabet.");
 			  		  
-			  wort_array[i][wert] = 1;
+			  wort_array[i][wert-1] = 1;
 			  
 			  i++;
 		  }
@@ -51,7 +55,9 @@ public class Woerter {
 			 } 
 			 array += "\n";
 		  }
-		  System.out.println(array);
+		  //System.out.println(array);
+		  
+		  return wort_array;
 		  
     }
     
